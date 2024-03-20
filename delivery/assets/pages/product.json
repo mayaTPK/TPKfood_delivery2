@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name":" Nsima with Chicken",
+        "price": 300,
+        "image": "../img/fullsize/5.jpg"
+    },
+    {
+        "id": 2,
+        "name":" Rice and Chicken",
+        "price": 250,
+        "image": "../img/fullsize/6.jpg"
+    },
+    {
+        "id": 3,
+        "name":" spaghetti and Beef",
+        "price": 290,
+        "image": "../img/fullsize/7.jpg"
+    },
+    {
+        "id": 4,
+        "name":" Irish with Chicken",
+        "price": 200,
+        "image": "../img/fullsize/8.jpg"
+    },
+    {
+        "id": 5,
+        "name":" Irish potatoes with beef",
+        "price": 300,
+        "image": "../img/fullsize/9.jpg"
+    },
+    {
+        "id": 6,
+        "name":" Nsima with beans",
+        "price": 200,
+        "image": "../img/fullsize/10.jpg"
+    },
+    {
+        "id": 7,
+        "name":" Nsima with Chambo",
+        "price": 200,
+        "image": "../img/fullsize/11.jpg"
+    },
+    {
+        "id": 8,
+        "name":" Rice with beans",
+        "price": 200,
+        "image": "../img/fullsize/12.jpg"
+    },
+    {
+        "id": 9,
+        "name":" Irish with beans",
+        "price": 300,
+        "image": "../img/fullsize/13.jpg"
+    }
+
+]

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Display a map</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.js"></script>
+    <link
+      href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .mapstyles-select {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <select class="mapstyles-select">
+      <optgroup label="Navigation and city exploration">
+        <option value="STREETS">STREETS</option>
+        <option value="STREETS.DARK" selected>STREETS.DARK</option>
+        <option value="STREETS.LIGHT">STREETS.LIGHT</option>
+        <option value="STREETS.PASTEL">STREETS.PASTEL</option>
+      </optgroup>
+      <option value="OUTDOOR">OUTDOOR</option>
+      <option value="WINTER">WINTER</option>
+      <option value="SATELLITE">SATELLITE</option>
+      <option value="HYBRID">HYBRID</option>
+      <optgroup label="Data visualization">
+        <option value="DATAVIZ">DATAVIZ</option>
+        <option value="DATAVIZ.DARK">DATAVIZ.DARK</option>
+        <option value="DATAVIZ.LIGHT">DATAVIZ.LIGHT</option>
+      </optgroup>
+      <option value="e4e704fd-bdaa-4a54-a6d5-50f1b07d9d68">Coffe</option>
+      <option value="f38285f4-f75f-486a-9127-0cc7a7358ae6">Beer</option>
+    </select>
+    <script>
+      maptilersdk.config.apiKey = "5EJk4Xjgl4wsmHVJCHeo";
+      const map = new maptilersdk.Map({
+        container: "map", // container id
+        style: maptilersdk.MapStyle.STREETS.DARK,
+        center: [11.5786, 48.0968], // starting position [lng, lat]
+        zoom: 10, // starting zoom
+      });
+      document
+        .querySelector(".mapstyles-select")
+        .addEventListener("change", (e) => {
+          const style_code = e.target.value.split(".");
+          style_code.length === 2
+            ? map.setStyle(maptilersdk.MapStyle[style_code[0]][style_code[1]])
+            : map.setStyle(
+                maptilersdk.MapStyle[style_code[0]] || style_code[0]
+              );
+        });
+    </script>
+  </body>
+</html>

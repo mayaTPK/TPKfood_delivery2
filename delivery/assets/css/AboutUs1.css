@@ -1,0 +1,146 @@
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  body {
+    font-family: "Montserrat", sans-serif;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu {
+    width: 44px;
+    position: relative;
+    top: -10px;
+    height: 3px;
+    background: #00000054;
+    box-shadow: 0px 11px #ff00006b, 1px 22px #66b78d;
+  }
+
+  nav {
+    padding: 8px;
+    height: 44px;
+    color: #909090;
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h2 {
+    font-weight: lighter;
+  }
+
+
+  .about {
+    text-align: center;
+    color: gray;
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 22px;
+    color: #2c2c2c;
+  }
+
+  .desc {
+    color: #909090;
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 1.45em;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 630px) {
+    .title {
+      font-size: 18px;
+    }
+  }
+  .row {
+    width: 95%;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  @media (max-width: 494px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+  .card {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .card_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 9px 30px -6px rgba(24, 206, 15, 0.3);
+    position: relative;
+    transition: transform 0.4s;
+  }
+
+  .fas,
+  .fab {
+    display: inline-block;
+    position: absolute;
+    color: #63b563;
+    transform: translate(-52%, 75%);
+    font-size: 40px;
+  }
+
+  .card_img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 9px 30px -6px rgba(24, 206, 15, 0.3);
+    position: relative;
+    transition: transform 0.4s;
+  }
+
+  .card_title {
+    font-size: 20px;
+    margin: 12px;
+    font-weight: bold;
+    color: #000000a8;
+    transition: color 0.2s;
+  }
+
+  .card:hover .card_title {
+    color: #4bd482;
+  }
+
+  .card:hover .card_img {
+    transform: translate(0px, -10px);
+  }
+
+  .card_body {
+    color: #8c9490;
+    font-size: 16px;
+    padding: 0 5px;
+    line-height: 1.5;
+    word-spacing: 4px;
+  }

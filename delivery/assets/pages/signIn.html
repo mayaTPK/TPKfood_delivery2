@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Ordering - Sign In</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- BOOTSTRAP  -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../css/signIn.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TPKf</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="../../index.html"
+              >Home</a
+            >
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Pricing</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br /><br /><br />
+
+    <div class="container-sm">
+      <h2>Sign In</h2>
+
+      <div class="OtherLogIn-buttons mb-3">
+        <div class="d-grid gap-2 col-md-6 mx-auto">
+          <button class="btn btn-secondary" type="button">
+            Sign In with Google
+          </button>
+          <button class="btn btn-secondary" type="button">
+            sign In with Facebook
+          </button>
+        </div>
+      </div>
+      <hr />
+      <form>
+        <div class="d-grid gap-2 col-md-6 mx-auto mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="d-grid gap-2 col-md-6 mx-auto mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="password"
+          />
+
+          <div class="row">
+            <div class="col">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Remember Me</label
+                >
+              </div>
+            </div>
+            <div class="col">
+              <a href="#" style="float: right">Forgot Password</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 col-4 mx-auto mb-3">
+          <button class="btn btn-primary" type="button">Sign In</button>
+
+          <p style="text-align: center">
+            Don't have an account? <a href="signUp.html">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">afflite program</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">delivery</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Online order</h4>
+            <ul>
+              <li><a href="#">nsima</a></li>
+              <li><a href="#">rice</a></li>
+              <li><a href="#">spaghetti</a></li>
+              <li><a href="#">potatoes</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-x"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- BOOTSTRAP JS  -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

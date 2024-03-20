@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <!-- BOOTSTRAP  -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="../css/signUp.css" />
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TPKf</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="../../index.html"
+              >Home</a
+            >
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Pricing</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- WELCOMING TEXT TO REGISTER -->
+    <div class="welcome" style="text-align: center">
+      <h1>Register</h1>
+      <p>Please Register if you want Access TPKFood</p>
+    </div>
+
+    <!-- INPUTS FORM -->
+
+    <form action="">
+      <div class="container my-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+              />
+              <label for="firstName">First Name</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+              />
+              <label for="larstName">Last Name</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+              />
+              <label for="UserName">User Name</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <div class="form-floating">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Email address</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+              />
+              <label for="mobileNumber">Mobile number(Enter 10 digits)</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <select id="inputState" class="form-select">
+              <option selected>Choose District</option>
+              <option>Blantyre</option>
+              <option>Lilongwe</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder=""
+              />
+              <label for="dzinalakokhala">City/Town/TC</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Confirm-Password</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Agree to terms and condtions
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-primary" type="button">Register</button>
+          <p>Already have an account? <a href="signIn.html">logIn</a></p>
+        </div>
+      </div>
+    </form>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">afflite program</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">delivery</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Online order</h4>
+            <ul>
+              <li><a href="#">nsima</a></li>
+              <li><a href="#">rice</a></li>
+              <li><a href="#">spaghetti</a></li>
+              <li><a href="#">potatoes</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-x"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- BOOTSTRAP JS  -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

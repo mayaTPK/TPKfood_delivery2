@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Routing</title>
+
+    <!-- leaflet css & js cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- leaflet Routing machine css & js cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+    <!-- styling the page -->
+    <style>
+      #map {
+        height: 600px;
+        width: 100%;
+        border: solid black 3px;
+      }
+    </style>
+  </head>
+  <body onload="onLoad();">
+    <div id="map"></div>
+  </body>
+</html>
+
+<script>
+  var map = L.map("map").setView([-13.944069, 33.75309], 15);
+  var tileLayer = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution: "OSM" }
+  ).addTo(map);
+
+  // marker
+  var marker = L.marker([-13.944069, 33.75309]).addTo(map);
+</script>

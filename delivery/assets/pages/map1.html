@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Display Routing</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.js"></script>
+    <link
+      href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .mapboxgl-routing-layer {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .mapboxgl-routing-marker {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      maptilersdk.config.apiKey = "5EJk4Xjgl4wsmHVJCHeo";
+
+      const map = new maptilersdk.Map({
+        container: "map",
+        style: maptilersdk.MapStyle.STREETS.DARK,
+        center: [11.5786, 48.0968], // Starting position [lng, lat]
+        zoom: 10,
+      });
+
+      const routing = new maptilersdk.Routing();
+      const startingCoordinates = [11.5786, 48.0968]; // Replace with your desired starting coordinates
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLocation = [
+            position.coords.longitude,
+            position.coords.latitude,
+          ];
+          routing
+            .calculateRoute({
+              start: startingCoordinates,
+              end: userLocation,
+              profile: maptilersdk.RoutingProfile.DRIVING,
+            })
+            .then((result) => {
+              const routeLayer = new maptilersdk.RoutingLayer({
+                route: result.route,
+                markerStart: { label: "Start" },
+                markerEnd: { label: "End" },
+              });
+              map.addLayer(routeLayer);
+              map.fitBounds(result.route.bounds);
+            })
+            .catch((error) => console.error(error));
+        },
+        (error) => console.error(error)
+      );
+    </script>
+  </body>
+</html>
