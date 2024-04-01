@@ -5,98 +5,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Snippet - BBBootstrap</title>
     <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="orderTracking.css" />
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      body {
+        color: #000;
+        overflow-x: hidden;
+        height: 100%;
+        background-color: #2ecc71;
+        background-repeat: no-repeat;
+      }
+      .card {
+        z-index: 0;
+        background-color: #eceff1;
+        padding-bottom: 20px;
+        margin-top: 90px;
+        margin-bottom: 90px;
+        border-radius: 10px;
+      }
+      .top {
+        padding-top: 40px;
+        padding-left: 13% !important;
+        padding-right: 13% !important;
+      }
+      #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: #455a64;
+        padding-left: 0px;
+        margin-top: 30px;
+      }
+      #progressbar li {
+        list-style-type: none;
+        font-size: 13px;
+        width: 20%;
+        float: left;
+        position: relative;
+        font-weight: 400;
+      }
+      #progressbar .step0:before {
+        font-family: FontAwesome;
+        content: "\f10c";
+        color: #fff;
+      }
+      #progressbar li:before {
+        width: 40px;
+        height: 40px;
+        line-height: 45px;
+        display: block;
+        font-size: 20px;
+        background: #c5cae9;
+        border-radius: 50%;
+        margin: auto;
+        padding: 0px;
+      }
+      #progressbar li:after {
+        content: "";
+        width: 100%;
+        height: 12px;
+        background: #c5cae9;
+        position: absolute;
+        left: 0;
+        top: 16px;
+        z-index: -1;
+      }
+      #progressbar li:last-child:after {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        left: -50%;
+      }
+      #progressbar li:nth-child(2):after,
+      #progressbar li:nth-child(3):after,
+      #progressbar li:nth-child(4):after {
+        left: -50%;
+      }
+      #progressbar li:first-child:after {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        position: absolute;
+        left: 50%;
+      }
+      #progressbar li:last-child:after {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      #progressbar li:first-child:after {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      #progressbar li.active:before,
+      #progressbar li.active:after {
+        background: #651fff;
+      }
+      #progressbar li.active:before {
+        font-family: FontAwesome;
+        content: "\f00c";
+      }
+      .icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+      }
+      .icon-content {
+        padding-bottom: 20px;
+      }
+      @media screen and (max-width: 992px) {
+        .icon-content {
+          width: 50%;
+        }
+      }
+    </style>
   </head>
-
   <body className="snippet-body">
-    <!-- Button to Open the Modal -->
-    <button
-      type="button"
-      class="btn btn-primary d-flex mx-auto btn-lg"
-      data-toggle="modal"
-      data-target="#myModal"
-    >
-      Track your order
-    </button>
-
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title mx-auto">
-              Order Status<br />AWB Number-5335T5S
-            </h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
+    <div class="container px-1 px-md-4 py-5 mx-auto">
+      <div class="card">
+        <div class="row d-flex justify-content-between px-3 top">
+          <div class="d-flex">
+            <h5>
+              ORDER <span class="text-primary font-weight-bold">#6152</span>
+            </h5>
           </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            <div class="progress-track">
-              <ul id="progressbar">
-                <li class="step0 active" id="step1">Order placed</li>
-                <li class="step0 active text-center" id="step2">In Transit</li>
-                <li class="step0 active text-right" id="step3">
-                  <span id="three">Out for Delivery</span>
-                </li>
-                <li class="step0 text-right" id="step4">Delivered</li>
-              </ul>
+          <div class="d-flex flex-column text-sm-right">
+            <p class="mb-0">Expected Arrival <span>01/06/20</span></p>
+            <p>
+              Grasshoppers
+              <span class="font-weight-bold"
+                ><a
+                  href="https://www.grasshoppers.lk/customers/action/track/V534HB"
+                  >V534HB</a
+                ></span
+              >
+            </p>
+          </div>
+        </div>
+        <!-- Add class 'active' to progress -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-12">
+            <ul id="progressbar" class="text-center">
+              <li class="active step0"></li>
+              <li class="active step0"></li>
+              <li class="active step0"></li>
+              <li class="step0"></li>
+              <li class="step0"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row justify-content-between top">
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/9nnc9Et.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Processed</p>
             </div>
-            <div class="row">
-              <div class="col-9">
-                <div class="details d-table">
-                  <div class="d-table-row">
-                    <div class="d-table-cell">Shipped with</div>
-                    <div class="d-table-cell">UPS Expedited</div>
-                  </div>
-                  <div class="d-table-row">
-                    <div class="d-table-cell">Estimated Delivery</div>
-                    <div class="d-table-cell">02/12/2017</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="d-table-row">
-                  <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                </div>
-                <div class="d-table-row">
-                  <a href="#"
-                    ><i class="fa fa-envelope" aria-hidden="true"></i
-                  ></a>
-                </div>
-              </div>
-
-              <div
-                style="height: 10vh; width: 10px; background-color: black"
-              ></div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/GiWFtVu.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Designing</p>
             </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/u1AzR7w.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Shipped</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/TkPm63y.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />En Route</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/HdsziHP.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Arrived</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="row d-flex justify-content-between px-3 top">
+          <div class="d-flex">
+            <h6>
+              <span class="text-primary font-weight-bold"
+                >2020-05-27 11:26:08 AM </span
+              >REQUEST CREATED
+            </h6>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-between px-3 top">
+          <div class="d-flex">
+            <h6>
+              <span class="text-primary font-weight-bold"
+                >2020-06-04 06:59:48 AM </span
+              >ATTEMPT 1 COMPLETED. ~ ***[AUTO GENERATED BY GRASSHOPPERS]***
+            </h6>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-between px-3 top">
+          <div class="d-flex">
+            <h6>
+              <span class="text-primary font-weight-bold"
+                >2020-06-04 06:59:48 AM </span
+              >RETURN TO VENDOR RECORD CREATED ~ RC806_118
+            </h6>
           </div>
         </div>
       </div>
     </div>
     <script
       type="text/javascript"
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
     ></script>
-    <script type="text/javascript" src="#"></script>
-    <script type="text/javascript" src="#"></script>
-    <script type="text/javascript" src="#"></script>
-    <script type="text/javascript" src="#"></script>
     <script type="text/javascript">
       var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener("click", function (e) {

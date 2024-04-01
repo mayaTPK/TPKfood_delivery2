@@ -4,11 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Map Routing</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="../css/RoutingTrack.css" />
+    <!-- BOOTSTRAP  -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
 
     <!-- vh-100 d-flex justify-content-center align-items-center rounded-lg overflow-hidden p-3 bg-black mx-auto -->
@@ -26,27 +38,36 @@
       href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
     />
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
-    <style>
-      .rounded-div {
-        height: 75vh;
-        border-radius: 20px;
-        border: 1px solid #ced4da;
-        padding: 10px;
-      }
-    </style>
   </head>
   <body onload="onLoad();">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TPKFood</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <header class="d-flex justify-content-center align-items-center py-3">
       <h1>Routing</h1>
     </header>
-
-    <!-- <div class="container-fluid">
-      <div
-        id="map"
-        class="rounded-div vh-100 d-flex justify-content-center align-items-center rounded-lg overflow-hidden p-3 bg-black mx-auto"
-      ></div>
-    </div> -->
 
     <div class="container-fluid">
       <div class="row">
@@ -59,6 +80,44 @@
         </div>
       </div>
     </div>
+    <br /><br />
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Get help</h4>
+            <ul>
+              <li><a href="#">delivery</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Online order</h4>
+            <ul>
+              <li><a href="#">nsima</a></li>
+              <li><a href="#">potatoes</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-x"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -91,4 +150,6 @@
       }).addTo(map);
     });
   </script>
+  <!-- bootstrap js -->
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
 </html>
