@@ -1,129 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout</title>
-    <link rel="stylesheet" href="../css/cartCheckout.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TPKfood checkout</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" /> -->
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <link rel="stylesheet" href="../css/Checkout2.css" />
   </head>
-  <body>
-    <div class="container">
-      <div class="checkoutLayout">
-        <div class="returnCart">
-          <a href="cart.html">keep shopping</a>
-          <h1>List Product in Cart</h1>
-          <div class="list">
-            <div class="item">
-              <img src="../img/fullsize/1.jpg" />
-              <div class="info">
-                <div class="name">PRODUCT 1</div>
-                <div class="price">K22/1 product</div>
-              </div>
-              <div class="quantity">5</div>
-              <div class="returnPrice">K433.3</div>
+  <body className="nippet-body">
+    <div class="container-fluid justify-content-center">
+      <!-- new -->
+      <div class="returnCart">
+        <a href="cart.html">keep shopping</a>
+        <h1>List Product in Cart</h1>
+        <div class="list">
+          <div class="item">
+            <img src="../img/fullsize/1.jpg" />
+            <div class="info">
+              <div class="name">PRODUCT 1</div>
+              <div class="price">K22/1 product</div>
             </div>
+            <div class="quantity">5</div>
+            <div class="returnPrice">K433.3</div>
           </div>
         </div>
-
-        <div class="right">
-          <h1>Checkout</h1>
-
-          <div class="form">
-            <div class="group">
-              <label for="name">Full Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-
-            <div class="group">
-              <label for="phone">Phone Number</label>
-              <input type="text" name="phone" id="phone" />
-            </div>
-
-            <div class="group">
-              <label for="address">Address</label>
-              <input type="text" name="address" id="address" />
-            </div>
-
-            <div class="group">
-              <label for="country">Country</label>
-              <select name="country" id="country">
-                <option value="">Choose..</option>
-                <option value="">Malawi</option>
-              </select>
-            </div>
-
-            <div class="group">
-              <label for="city">City</label>
-              <select name="city" id="city">
-                <option value="">Choose..</option>
-                <option value="">Blantyre</option>
-              </select>
+      </div>
+      <!-- new -->
+      <div class="row justify-content-center">
+        <div class="card my-4 p-3">
+          <div class="row main">
+            <div class="col-12">
+              &nbsp;&nbsp;&nbsp;&nbsp;<span>Credit card checkout</span>
             </div>
           </div>
-          <!-- payment method  -->
-          <div class="paymentMethod">
-            <h3>Payment Method</h3>
-            <input type="radio" name="AirtelMoney" id="airtelmoney" />
-            <label for="radio">Airtel Money</label>
-            <br />
-            <input type="radio" name="TNMmpamba" id="TNMmpamba" />
-            <label for="radio">TNM Mpamba</label>
-            <br />
-            <input type="radio" name="CreditCard" id="CreditCard" />
-            <label for="radio">Credit Card</label>
+
+          <div class="row justify-content-center mrow">
+            <div class="col-12">
+              <img
+                src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                width="35px"
+                height="35px"
+              />
+              <img
+                src="https://img.icons8.com/color/48/000000/visa.png"
+                width="35px"
+                height="35px"
+              />
+              <img
+                src="https://img.icons8.com/color/48/000000/paypal.png"
+                width="35px"
+                height="35px"
+              />
+            </div>
           </div>
-          <div class="return">
+          <form class="form-card">
             <div class="row">
-              <div>Total Quantity</div>
-              <div class="totalQuantity">70</div>
+              <div class="col-12">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control p-0"
+                    id="number"
+                    required
+                  /><label class="form-control-placeholder p-0" for="number"
+                    >CardNumber</label
+                  >
+                </div>
+              </div>
             </div>
             <div class="row">
-              <div>Total Price</div>
-              <div class="totalPrice">K900</div>
+              <div class="col-12">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control p-0"
+                    id="name"
+                    required
+                  /><label class="form-control-placeholder p-0" for="name"
+                    >Cardholder'sName</label
+                  >
+                </div>
+              </div>
             </div>
-          </div>
-          <button class="buttonCheckout">Place Orders</button>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control p-0"
+                    id="name"
+                    required
+                  /><label class="form-control-placeholder p-0" for="name"
+                    >Postal Address/House number</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4 col-12">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control p-0"
+                    id="sdate"
+                    required
+                  /><label class="form-control-placeholder p-0" for="sdate"
+                    >StartDate</label
+                  >
+                </div>
+              </div>
+              <div class="col-sm-4 col-12">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control p-0"
+                    id="expdate"
+                    required
+                  /><label class="form-control-placeholder p-0" for="expdate"
+                    >ExpirationDate</label
+                  >
+                </div>
+              </div>
+              <div class="col-sm-4 col-12">
+                <div class="form-group">
+                  <input
+                    type="password"
+                    class="form-control p-0"
+                    id="passw"
+                    required
+                  /><label class="form-control-placeholder p-0" for="passw"
+                    >CVV</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row lrow mt-4 mb-3">
+              <div class="col-sm-8 col-12"><h3>Total items:</h3></div>
+              <div class="col-sm-4 col-12 totalQuantity"><h5>70</h5></div>
+            </div>
+            <div class="row lrow mt-4 mb-3">
+              <div class="col-sm-8 col-12"><h3>Total price</h3></div>
+              <div class="col-sm-4 col-12 totalPrice"><h5>K900</h5></div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-12">
+                <button type="button" class="btn btn-primary btn-block">
+                  Pay Now
+                </button>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-sm-12">
+                <a
+                  href="../pages/orderTracking.html"
+                  class="btn btn-primary btn-block"
+                  >Pay on Delivery</a
+                >
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+    <script
+      type="text/javascript"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    ></script>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">our services</a></li>
-              <li><a href="#">privacy policy</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <h4>Get help</h4>
-            <ul>
-              <li><a href="#">delivery</a></li>
-              <li><a href="#">payment options</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <h4>Online order</h4>
-            <ul>
-              <li><a href="#">nsima</a></li>
-              <li><a href="#">potatoes</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <h4>Follow us</h4>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-x"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- <script src="../bootstrap/js/bootstrap.min.js"></script> -->
 
+    <script type="text/javascript">
+      var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener("click", function (e) {
+        e.preventDefault();
+      });
+    </script>
+    <!-- custom script -->
     <script src="../js/checkout.js"></script>
   </body>
 </html>
