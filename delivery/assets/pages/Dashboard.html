@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Snippet - BBBootstrap</title>
+    <title>Restaurant Dash</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,30 +22,32 @@
   <body className="snippet-body">
     <div>
       <div class="d-flex flex-row">
-        <div class="col-md-3">
+        <div class="col-md-3 fixed-left">
           <div class="card card1 p-3">
             <div class="image d-flex flex-row align-items-center mt-3">
-              <img
-                src="https://i.imgur.com/R4afbIg.png"
-                height="50"
-                width="50"
-              />
-              <span>Clover</span>
+              <span>TPKfood</span>
             </div>
             <hr class="hline" />
             <div class="d-flex flex-column align-items-center">
               <button class="btn">
-                <i class="fa fa-dashboard"></i><span>Dashboard</span>
+                <i class="fa fa-dashboard"></i
+                ><span><a href="#top">Dashboard</a></span>
               </button>
               <button class="btn mt-3">
-                <i class="fa fa-users"></i><span>Users</span>
+                <i class="fa fa-users"></i
+                ><span> <a href="#recentorders">Recent orders</a></span>
               </button>
               <button class="btn mt-3">
-                <i class="fa fa-inbox"></i><span>Inbox</span>
+                <i class="fa fa-users"></i
+                ><span><a href="#assignriders">Assign Riders</a></span>
+              </button>
+              <button class="btn mt-3">
+                <i class="fa fa-inbox"></i
+                ><span><a href="#uploadmenu">Upload Menu</a></span>
               </button>
               <span class="other mt-4">Other Information</span>
               <button class="btn mt-3">
-                <i class="fa fa-book"></i><span>Knowlwdge</span>
+                <i class="fa fa-book"></i><span>Knowledge</span>
               </button>
               <button class="btn mt-3">
                 <i class="fa fa-question-circle"></i><span>Dashboard</span>
@@ -53,12 +55,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 fixed-right">
           <div class="card card2 p-3">
             <div
+              id="top"
               class="hello d-flex justify-content-end align-items-center mt-3"
             >
-              <span>Hi,Frank Jack</span>
+              <span>Zakudya Kitchen</span>
             </div>
             <div class="d-flex flex-row gap-3">
               <div class="card cardchild mt-3 p-2 px-3 py-3">
@@ -69,7 +72,7 @@
                   </div>
                   <div class="d-flex flex-column">
                     <img
-                      src="https://i.imgur.com/Slxu74c.png"
+                      src="https://cdn-icons-gif.flaticon.com/13399/13399456.gif"
                       class="logo1"
                       height="40"
                       width="40"
@@ -85,7 +88,7 @@
                   </div>
                   <div class="d-flex flex-column">
                     <img
-                      src="https://i.imgur.com/7SEdq7z.png"
+                      src="https://cdn-icons-gif.flaticon.com/13399/13399456.gif"
                       class="logo2"
                       height="40"
                       width="40"
@@ -101,7 +104,7 @@
                   </div>
                   <div class="d-flex flex-column">
                     <img
-                      src="https://i.imgur.com/xvUzRjK.png"
+                      src="https://cdn-icons-gif.flaticon.com/13399/13399456.gif"
                       class="logo3"
                       height="40"
                       width="40"
@@ -117,7 +120,7 @@
                   </div>
                   <div class="d-flex flex-column">
                     <img
-                      src=" https://i.imgur.com/iLU5F9A.png"
+                      src=" https://cdn-icons-gif.flaticon.com/13399/13399456.gif"
                       class="logo4"
                       height="40"
                       width="40"
@@ -131,7 +134,7 @@
                 <div class="card cardchildchild p-2">
                   <div class="profile1">
                     <img
-                      src="https://i.imgur.com/NI5b1NX.jpg"
+                      src="../img/brian.png"
                       height="90"
                       width="90"
                       class="rounded-circle"
@@ -140,11 +143,10 @@
                   <div
                     class="d-flex flex-column justify-content-center align-items-center mt-5"
                   >
-                    <span class="name">Bess Wills</span>
-                    <span class="mt-1 braceletid">Bracelet ID:SFG 38393</span>
+                    <span class="name">Brian Chaponda</span>
+                    <span class="mt-1 braceletid">Restaurant co-CEO</span>
                     <span class="dummytext mt-3 p-3"
-                      >Lorem ipsum dolor sit amet, consectetur adipiscing
-                      elit.Text elit more smtit.Kimto lee.
+                      >Chaponda family business branch. TPK COMPANIES.
                     </span>
                   </div>
                   <div
@@ -166,7 +168,7 @@
                 <div class="card cardchildchild p-2">
                   <div class="profile1">
                     <img
-                      src="https://i.imgur.com/YyoCGsa.jpg"
+                      src="../img/emmanuel.png"
                       height="90"
                       width="90"
                       class="rounded-circle"
@@ -175,11 +177,10 @@
                   <div
                     class="d-flex flex-column justify-content-center align-items-center mt-5"
                   >
-                    <span class="name">Bess Wills</span>
-                    <span class="mt-1 braceletid">Bracelet ID:SFG 38393</span>
+                    <span class="name">Emmanuel Chaponda</span>
+                    <span class="mt-1 braceletid">Restaurant co-CEO</span>
                     <span class="dummytext mt-3 p-3"
-                      >Lorem ipsum dolor sit amet, consectetur adipiscing
-                      elit.Text elit more smtit.Kimto lee.
+                      >Chaponda family business branch. TPK COMPANIES.
                     </span>
                   </div>
                   <div
@@ -199,6 +200,180 @@
               </div>
             </div>
           </div>
+          <!-- section for recent orders -->
+          <section id="recentorders" class="mt-3">
+            <h2>Recent Orders</h2>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ORD-1234</td>
+                  <td>Hesborn Jiyah</td>
+                  <td>K2500</td>
+                  <td>Pending</td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-warning disabled"
+                    >
+                      Mark as Delivered
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ORD-1234</td>
+                  <td>Benson Chinomba</td>
+                  <td>K1500</td>
+                  <td>Pending</td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-warning disabled"
+                    >
+                      Mark as Delivered
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ORD-5678</td>
+                  <td>Barnwell Manda</td>
+                  <td>K3250</td>
+                  <td>Preparing</td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-warning disabled"
+                    >
+                      Mark as Delivered
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <!-- section for assigning a rider  -->
+          <section id="assignriders">
+            <h4>Assign Riders</h4>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="card" style="width: 18rem">
+                    <img
+                      src="../img/rider1.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Brian Fodya</h5>
+                      <p class="card-text">
+                        I am from Limbe, I have a bike in good conditon, Ready
+                        for any work.
+                      </p>
+                      <a href="#" class="btn btn-info">Assign</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card" style="width: 18rem">
+                    <img
+                      src="../img/rider2.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Chikondi Chirwa</h5>
+                      <p class="card-text">
+                        I am from Limbe, I have a bike in good conditon, Ready
+                        for any work.
+                      </p>
+                      <a href="#" class="btn btn-info">Assign</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card" style="width: 18rem">
+                    <img
+                      src="../img/rider3.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Agness Lunga</h5>
+                      <p class="card-text">
+                        I am from Limbe, I have a bike in good conditon, Ready
+                        for any work.
+                      </p>
+                      <a href="#" class="btn btn-info">Assign</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- section for uploading menu -->
+          <section id="uploadmenu">
+            <h4>Upload menus</h4>
+            <form class="row g-3">
+              <div class="col-sm-7">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Food name"
+                  aria-label="Food name"
+                />
+              </div>
+              <div class="col-sm">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Price"
+                  aria-label="Price"
+                />
+              </div>
+              <div class="col-sm">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Food ID"
+                  aria-label="Food ID"
+                />
+              </div>
+              <div class="col-12">
+                <!-- <label for="imageInput">Select Image:</label>
+                <input type="file" id="imageInput" name="imageInput" accept="image/*"> -->
+                <label for="imageInput" class="form-label">Select Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageInput"
+                  accept="image/*"
+                />
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="gridCheck"
+                  />
+                  <label class="form-check-label" for="gridCheck">
+                    Verify
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-dark">Upload</button>
+              </div>
+            </form>
+          </section>
         </div>
       </div>
     </div>

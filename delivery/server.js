@@ -67,16 +67,20 @@ app.use(express.static('assets'));
 
 // Routes
 
+app.get('/',(req,res)=>{
+    res.render("index1.ejs")
+})
+
+app.get('/restaurant',(req,res)=>{
+    res.render("restaurantdash.ejs")
+})
+
 app.get('/home', checkAuthenticated,(req,res)=>{
     res.render("index.ejs", {name: req.user.name})
 })
 
 app.get('/login',checkNotAuthenticated,(req,res)=>{
     res.render("login.ejs")
-})
-
-app.get('/',(req,res)=>{
-    res.render("index1.ejs")
 })
 
 app.get('/register',checkNotAuthenticated,(req,res)=>{

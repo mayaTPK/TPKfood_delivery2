@@ -47,3 +47,32 @@
     font-size: 18;
     font-weight: 500;
   }
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+  .fixed-left{
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .fixed-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  #recentorders{
+    padding: 20px;
+  }
+
+  #assignriders{
+    padding: 20px;
+  }
+
+  #uploadmenu{
+    padding: 20px;
+  }
