@@ -11,6 +11,7 @@ const initializePassport = require("./passport-config")
 const flash = require("express-flash")
 const session = require("express-session")
 const methodOveride = require("method-override")
+const path =require("path")
 
 initializePassport(
     passport,
@@ -85,6 +86,14 @@ app.get('/login',checkNotAuthenticated,(req,res)=>{
 
 app.get('/register',checkNotAuthenticated,(req,res)=>{
     res.render("register.ejs")
+})
+
+app.get('/rlogin',checkNotAuthenticated,(req,res)=>{
+    res.render("rlogin.ejs")
+})
+
+app.get('/rsignup',checkNotAuthenticated,(req,res)=>{
+    res.render("rsignup.ejs")
 })
 
 // logging out
