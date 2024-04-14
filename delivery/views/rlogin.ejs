@@ -24,14 +24,35 @@
         text-align: center;
         align-items: center;
       }
+      a {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">TPKfood</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
     <h2>Restaurant Log in</h2>
     <div class="container mb-3">
       <div class="row">
         <div class="col align-self-center">
-          <form action="" method="post">
+          <form action="/rlogin" method="post">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Email address</label
@@ -66,6 +87,7 @@
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
         </div>
+        <p>Don't have an Account? <a href="/rsignup">Sign Up</a></p>
       </div>
     </div>
 

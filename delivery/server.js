@@ -8,11 +8,19 @@ const app = express()
 const bcrypt = require("bcrypt")
 const passport = require("passport")
 const initializePassport = require("./passport-config")
+const collection = require("./passport-config")
 const flash = require("express-flash")
 const session = require("express-session")
 const methodOveride = require("method-override")
 const path =require("path")
 
+
+// // DATABAS CODE START converting data into json
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+// // DATABASE END CODE
+// //initializePassport starts
 initializePassport(
     passport,
     email => users.find(user => user.email === email),
@@ -68,6 +76,7 @@ app.use(express.static('assets'));
 
 // Routes
 
+
 app.get('/',(req,res)=>{
     res.render("index1.ejs")
 })
@@ -96,6 +105,30 @@ app.get('/rsignup',checkNotAuthenticated,(req,res)=>{
     res.render("rsignup.ejs")
 })
 
+//End routes
+
+
+// // DATABASE AREA 
+// //app post register restaurant account
+// app.post("/rsignup", async (req, res) =>{
+//     const data = {
+//         name: req.body.username,
+//         email: req.body.email,
+//         password: req.body.password
+//     }
+//     try {
+//         const result = await collection.insertOne(data);
+//         console.log(result);
+//     } catch (error) {
+//         console.error(error);
+//     }
+
+//     // const userdata = await collection.insertMany(data);
+//     // console.log(userdata);
+// })
+// //DATABASE END CODE
+
+
 // logging out
 app.delete('/logout',(req, res)=>{
     req.logout(req.user, err =>{
@@ -104,7 +137,6 @@ app.delete('/logout',(req, res)=>{
     })
 })
 
-//End routes
 
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){

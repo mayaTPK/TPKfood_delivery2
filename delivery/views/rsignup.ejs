@@ -23,18 +23,40 @@
         align-items: center;
         text-align: center;
       }
+      a {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">TPKfood</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
     <br /><br />
     <h2>Sign Up for Restaurant</h2>
     <br /><br />
     <div class="container-md mb-3">
-      <form class="row g-3">
+      <form action="/rsignup" class="row g-3">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
           <input
             type="email"
+            name="email"
             class="form-control"
             id="inputEmail4"
             placeholder="example@gmail.com"
@@ -42,12 +64,18 @@
         </div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" />
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="inputPassword4"
+          />
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Name</label>
           <input
             type="text"
+            name="username"
             class="form-control"
             id="inputAddress"
             placeholder="name..."
@@ -80,6 +108,7 @@
           <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
       </form>
+      <p>Aready have an account <a href="/rlogin">Log In</a></p>
     </div>
 
     <!-- bootsrap CDN JS -->
