@@ -41,3 +41,18 @@ function addCartToHTML(){
     totalQuantityHTML.innerText = totalQuantity;
     totalPriceHTML.innerText = 'K' + totalPrice;
 }
+
+
+
+const foodnote = document.getElementById("placeorder");
+foodnote.addEventListener("click", ()=>{
+    Notification.requestPermission().then(perm =>{
+        if (perm === "granted"){
+            new Notification("your food is being prepared!",{
+                body: "Click on 'Route Map' to see distance from restaurant to you😊."
+            })
+        }
+    })
+})
+
+  
