@@ -8,18 +8,51 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="../css/RoutingTrack.css" />
+
+    <!-- leaflet CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <!-- Location control CDN -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/dist/L.Control.Locate.min.css"
+    />
+
+    <script src="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/dist/L.Control.Locate.min.js"></script>
+
+    <style>
+      a {
+        text-decoration: none;
+      }
+    </style>
   </head>
 
-  <style>
-    .rounded-div {
-      height: 75vh;
-      border-radius: 20px;
-      border: 1px solid #ced4da;
-      /* padding: 10px; */
-    }
-  </style>
-
-  <body style="background-image: url('../img/grey2.jpg')">
+  <body style="background-color: rgb(221, 212, 194)">
     <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
       <a class="navbar-brand" href="/">TPKfood</a>
       <ul class="nav nav-pills">
@@ -83,13 +116,6 @@
                       <li>
                         <a class="dropdown-item" href="#">Deny Delivery</a>
                       </li>
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="../pages/RoutingOrderTrack.html"
-                          >Route Map</a
-                        >
-                      </li>
                     </ul>
                   </div>
                 </td>
@@ -119,13 +145,6 @@
                       </li>
                       <li>
                         <a class="dropdown-item" href="#">Deny Delivery</a>
-                      </li>
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="../pages/RoutingOrderTrack.html"
-                          >Route Map</a
-                        >
                       </li>
                     </ul>
                   </div>
@@ -157,13 +176,6 @@
                       <li>
                         <a class="dropdown-item" href="#">Deny Delivery</a>
                       </li>
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="../pages/RoutingOrderTrack.html"
-                          >Route Map</a
-                        >
-                      </li>
                     </ul>
                   </div>
                 </td>
@@ -172,9 +184,31 @@
           </table>
         </section>
       </div>
+      <br />
+
+      <!-- Available cutomers on map  -->
+      <section class="align-items-center">
+        <div class="customeronmap align-items-center text-center">
+          <label for=""
+            >👇Map showing restaurants near you, click arrow to centre to your
+            location on map. click here to see
+          </label>
+          <a href="ridersharingmap.html">Customers on map</a>
+        </div>
+      </section>
+      <br />
+      <!-- driver location and buffer map -->
+      <section>
+        <div
+          id="map"
+          style="border-radius: 30px; height: 75vh"
+          class="col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+        ></div>
+      </section>
+      <br />
 
       <!-- Google map section -->
-      <section>
+      <!-- <section>
         <br /><br />
         <h2 class="text-center fw-bold">Get Directions on Google maps</h2>
         <br />
@@ -186,11 +220,81 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-      </section>
+      </section> -->
     </div>
-
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Get help</h4>
+            <ul>
+              <li><a href="#">delivery</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Online order</h4>
+            <ul>
+              <li><a href="#">nsima</a></li>
+              <li><a href="#">potatoes</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-x"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+<!-- leafet code  -->
+<script>
+  // Building coordinates for customers
+  const buildingCoordinates = [
+    [-15.9017203438969, 35.21366076270135], // Building 1
+    [-15.901477714108713, 35.21332806322287], // Building 2
+    [-15.901266061291512, 35.21388614147], // Building 3
+    [-15.90088973050024, 35.21264657952471], // Building 3
+    [-15.89948040288662, 35.21343003313538], // Building 3
+  ];
+  // Create a map instance
+  const map = L.map("map").setView([-15.78377575585279, 35.02166748046876], 10);
+
+  // Add a tile layer (using OpenStreetMap)
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  // locating where rider is
+  L.control.locate().addTo(map);
+
+  // Create a custom icon for restaurants
+  const customIcon = L.icon({
+    iconUrl: "https://img.icons8.com/ios-filled/50/restaurant--v1.png",
+    iconSize: [20, 20], // Set the size of the icon
+  });
+
+  // Add markers for the restaurants coordinates
+  buildingCoordinates.forEach(function (coords, index) {
+    const marker1 = L.marker(coords, { icon: customIcon }).addTo(map);
+    marker1.bindPopup(`Restaurant ${index + 1}`).openPopup();
+  });
+</script>

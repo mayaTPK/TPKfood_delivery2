@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Location Picker</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="../css/RoutingTrack.css" />
+
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <!-- Location control CDN -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/dist/L.Control.Locate.min.css"
+    />
+
+    <script src="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/dist/L.Control.Locate.min.js"></script>
+    <style>
+      body {
+        padding: 20px;
+      }
+      #map,
+      #routing-map {
+        height: 75vh;
+        border-radius: 20px;
+        width: 100%;
+        cursor: crosshair;
+      }
+
+      #inputs {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #inputs label {
+        margin-right: 5px;
+      }
+
+      #inputs input {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">TPKFood</a>
+        <a class="navbar-brand" href="deliveryagent.html">delivery Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="container-fluid align-items-center text-center">
+      <h3>Move the bike by clicking beside the customer and Route there</h3>
+      <br />
+      <section>
+        <div
+          id="map"
+          style="border-radius: 30px; height: 75vh"
+          class="col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+        ></div>
+        <br />
+        <div id="inputs">
+          <label for="latitude" style="display: none">Latitude:</label>
+          <input type="text" id="latitude" readonly style="display: none" />
+          <label for="longitude" style="display: none">Longitude:</label>
+          <input type="text" id="longitude" readonly style="display: none" />
+          <button
+            class="btn btn-info"
+            style="border-end-end-radius: 10px"
+            id="share-btn"
+          >
+            Route there
+          </button>
+        </div>
+      </section>
+    </div>
+    <br />
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Get help</h4>
+            <ul>
+              <li><a href="#">delivery</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Online order</h4>
+            <ul>
+              <li><a href="#">nsima</a></li>
+              <li><a href="#">potatoes</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-x"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>
+
+<script>
+  // Building coordinates for customers
+  const buildingCoordinates = [
+    [-15.901003190450545, 35.212162889744285], // Building 1
+    [-15.900326969222801, 35.21299444434514], // Building 2
+    [-15.902020171068246, 35.21239899905163], // Building 3
+  ];
+
+  // Create a map instance
+  const map = L.map("map").setView([0, 0], 2);
+
+  // Add a tile layer (using OpenStreetMap)
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  // Variable to store the marker
+  let marker = null;
+
+  // Get user's location and update the map
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      const latlng = [position.coords.latitude, position.coords.longitude];
+      map.setView(latlng, 17);
+      updateInputs(latlng);
+      addMarker(latlng);
+    },
+    function () {
+      alert("Could not get your location");
+    }
+  );
+
+  // locating where rider is
+  L.control.locate().addTo(map);
+
+  // Create a custom icon for customers
+  const customIcon = L.icon({
+    iconUrl: "https://img.icons8.com/retro/32/user.png",
+    iconSize: [20, 20], // Set the size of the icon
+  });
+
+  // Create a custom icon for riders
+  const riderIcon = L.icon({
+    iconUrl: "https://img.icons8.com/ios-filled/50/cycling-bmx.png",
+    iconSize: [25, 25], // Set the size of the icon
+  });
+
+  // Add markers for the customers coordinates
+  buildingCoordinates.forEach(function (coords, index) {
+    const marker1 = L.marker(coords, { icon: customIcon }).addTo(map);
+    marker1.bindPopup(`Customer ${index + 1}`).openPopup();
+  });
+
+  // Add click event listener to the map
+  map.on("click", function (e) {
+    updateInputs(e.latlng);
+    addMarker(e.latlng);
+  });
+
+  // Function to add or update the marker
+  function addMarker(latlng) {
+    if (marker) {
+      map.removeLayer(marker);
+    }
+    marker = L.marker(latlng, { icon: riderIcon }).addTo(map);
+  }
+
+  // Function to update input fields with latitude and longitude
+  function updateInputs(latlng) {
+    document.getElementById("latitude").value = latlng.lat;
+    document.getElementById("longitude").value = latlng.lng;
+  }
+
+  // Share button click event
+  document.getElementById("share-btn").addEventListener("click", function () {
+    const latitude = document.getElementById("latitude").value;
+    const longitude = document.getElementById("longitude").value;
+    const sharedLocation = [latitude, longitude];
+    window.open(`riderouting.html?lat=${latitude}&lon=${longitude}`, "_self");
+  });
+</script>

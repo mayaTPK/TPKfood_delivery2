@@ -15,7 +15,7 @@ const methodOveride = require("method-override")
 const path =require("path")
 
 
-// // DATABAS CODE START converting data into json
+// // DATABASE CODE START converting data into json
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -28,7 +28,9 @@ initializePassport(
     )
 
 
+// // MYSQL DATABASE CONNECTION
 
+// // MYSQL DATABASE CONNECTION ends 
 
 const users = []
 

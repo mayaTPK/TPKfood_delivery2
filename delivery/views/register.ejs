@@ -44,7 +44,7 @@
 
     <!-- INPUTS FORM -->
 
-    <form action="/register" method="post">
+    <form id="myForm" action="/register" method="post">
       <% if (messages.error){ %>
       <div class="alert alert-danger d-grid gap-2 col-md-6 mx-auto">
         <strong><%= messages.error %></strong>
@@ -132,19 +132,44 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="checkbox"
                 value=""
-                id="flexCheckDefault"
+                type="checkbox"
+                id="termsCheckbox"
               />
-              <label class="form-check-label" for="flexCheckDefault">
-                Agree to terms and condtions
-              </label>
+              <a
+                href="#collapseExample"
+                style="text-decoration: none"
+                class="form-check-label"
+                for="flexCheckDefault"
+                data-bs-toggle="collapse"
+              >
+                I Agree to terms and condtions
+              </a>
             </div>
           </div>
         </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p>Mukulora kuti tigwiritse ntchito location yanu.</p>
+            <p>Mukamenya okubweretserani chakudya mudzamangidwa.</p>
+          </div>
+          <br />
+        </div>
+
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button class="btn btn-primary" type="submit">Sign Up</button>
-          <p>Already have an account? <a href="/login">logIn</a></p>
+          <button
+            id="submitButton"
+            class="btn btn-primary"
+            type="submit"
+            disabled
+          >
+            Sign Up
+          </button>
+          <p>
+            Already have an account?
+            <a style="text-decoration: none" href="/login">logIn</a>
+          </p>
         </div>
       </div>
     </form>
@@ -188,5 +213,27 @@
     </footer>
     <!-- BOOTSTRAP JS  -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+      // script.js
+      window.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("myForm");
+        const termsCheckbox = document.getElementById("termsCheckbox");
+        const submitButton = document.getElementById("submitButton");
+
+        termsCheckbox.addEventListener("change", function () {
+          submitButton.disabled = !this.checked;
+        });
+
+        form.addEventListener("submit", function (event) {
+          if (!termsCheckbox.checked) {
+            alert(
+              "Please agree to the terms and conditions before submitting the form."
+            );
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
