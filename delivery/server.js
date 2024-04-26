@@ -45,10 +45,24 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOveride("_method"))
 
-// configuring Customer login part
+///// configuring Customer login part
 app.post("/login", checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/home",
     failureRedirect: "/login",
+    failureFlash: true
+}))
+
+////// configuring Restaurant login part
+app.post("/rlogin", checkNotAuthenticated, passport.authenticate("local", {
+    successRedirect: "/pages/dashboard.html",
+    failureRedirect: "/rlogin",
+    failureFlash: true
+}))
+
+////// configuring driver login part
+app.post("/dlogin", checkNotAuthenticated, passport.authenticate("local", {
+    successRedirect: "/pages/deliveryagent.html",
+    failureRedirect: "/dlogin",
     failureFlash: true
 }))
 
@@ -72,6 +86,43 @@ app.post("/register", checkNotAuthenticated, async(req, res)=>{
 })
 
 
+// configuring Restaurant Register part
+app.post("/rsignup", async(req, res)=>{
+    try {
+        const hashedpassword = await bcrypt.hash(req.body.password,10)
+        users.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedpassword,
+        })
+        console.log(users);//displaying new users
+        res.redirect("/rlogin")
+    } catch (e) {
+        console.log(e)
+        res.redirect("/rsignup")
+    }
+})
+
+
+// configuring driver Register part
+app.post("/dregister", async(req, res)=>{
+    try {
+        const hashedpassword = await bcrypt.hash(req.body.password,10)
+        users.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedpassword,
+        })
+        console.log(users);//displaying new users
+        res.redirect("/dlogin")
+    } catch (e) {
+        console.log(e)
+        res.redirect("/dregister")
+    }
+})
+
 
 // Serve static files from the 'public' directory
 app.use(express.static('assets'));
@@ -83,28 +134,33 @@ app.get('/',(req,res)=>{
     res.render("index1.ejs")
 })
 
-app.get('/restaurant',(req,res)=>{
-    res.render("restaurantdash.ejs")
-})
 
 app.get('/home', checkAuthenticated,(req,res)=>{
     res.render("index.ejs", {name: req.user.name})
 })
 
-app.get('/login',checkNotAuthenticated,(req,res)=>{
+app.get('/login',(req,res)=>{
     res.render("login.ejs")
 })
 
-app.get('/register',checkNotAuthenticated,(req,res)=>{
+app.get('/register',(req,res)=>{
     res.render("register.ejs")
 })
 
-app.get('/rlogin',checkNotAuthenticated,(req,res)=>{
+app.get('/rlogin',(req,res)=>{
     res.render("rlogin.ejs")
 })
 
-app.get('/rsignup',checkNotAuthenticated,(req,res)=>{
+app.get('/rsignup',(req,res)=>{
     res.render("rsignup.ejs")
+})
+
+app.get('/dregister',(req,res)=>{
+    res.render("dregister.ejs")
+})
+
+app.get('/dlogin',(req,res)=>{
+    res.render("dlogin.ejs")
 })
 
 //End routes
@@ -135,7 +191,7 @@ app.get('/rsignup',checkNotAuthenticated,(req,res)=>{
 app.delete('/logout',(req, res)=>{
     req.logout(req.user, err =>{
         if (err) return next(err)
-        res.redirect("/home")
+        res.redirect("/")
     })
 })
 
