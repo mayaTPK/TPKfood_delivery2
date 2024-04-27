@@ -26,6 +26,31 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
     />
     <link rel="stylesheet" href="../css/untitled.css" />
+
+    <!-- leaflet CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <!-- Location control CDN -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/dist/L.Control.Locate.min.css"
+    />
+
+    <script src="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/dist/L.Control.Locate.min.js"></script>
   </head>
 
   <body
@@ -115,6 +140,19 @@
           </div>
         </div>
       </div>
+
+      <section>
+        <h3
+          class="col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+        >
+          Restaurants Around your area
+        </h3>
+        <div
+          id="map"
+          style="border-radius: 30px; height: 75vh"
+          class="col-lg-9 col-md-9 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+        ></div>
+      </section>
     </section>
     <section id="portfolio" class="p-0">
       <div class="container-fluid p-0">
@@ -214,3 +252,42 @@
     <script src="../js/creative.js"></script>
   </body>
 </html>
+<!-- leaflet-locatecontrol js  -->
+<script>
+  // Building coordinates for customers
+  const buildingCoordinates = [
+    [-15.9017203438969, 35.21366076270135], // Building 1
+    [-15.901477714108713, 35.21332806322287], // Building 2
+    [-15.901266061291512, 35.21388614147], // Building 3
+    [-15.90088973050024, 35.21264657952471], // Building 3
+    [-15.89948040288662, 35.21343003313538], // Building 3
+  ];
+  // Create a map instance
+  const map = L.map("map").setView([-15.78377575585279, 35.02166748046876], 10);
+
+  // Add a tile layer (using OpenStreetMap)
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "TPKfood",
+  }).addTo(map);
+
+  // locating where rider is
+  L.control.locate().addTo(map);
+
+  // Create a custom icon for restaurants
+  const customIcon = L.icon({
+    iconUrl: "https://img.icons8.com/ios-filled/50/restaurant--v1.png",
+    iconSize: [20, 20], // Set the size of the icon
+  });
+
+  // Add markers for the restaurants coordinates
+  buildingCoordinates.forEach(function (coords, index) {
+    const marker1 = L.marker(coords, { icon: customIcon }).addTo(map);
+    marker1
+      .bindPopup(
+        `<a style="text-decoration: none;" href="../pages/cart.html">Visit</a> Restaurant ${
+          index + 1
+        }`
+      )
+      .openPopup();
+  });
+</script>

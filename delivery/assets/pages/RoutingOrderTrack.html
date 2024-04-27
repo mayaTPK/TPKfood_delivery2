@@ -66,7 +66,7 @@
       </div>
     </nav>
     <header class="d-flex justify-content-center align-items-center py-3">
-      <h1>Routing</h1>
+      <h2 style="font-weight: bold">The route from you to the Restaurant</h2>
     </header>
 
     <div class="container-fluid">
@@ -77,6 +77,18 @@
         >
           <!-- col-lg-9 takes up 75% of the screen for large screens, and full width for smaller screens -->
           <!-- Your content goes here -->
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-9 col-md-9 col-sm-12 col-xs-12 justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+        >
+          <h3 style="font-weight: bold">
+            Thank you for using TPKfood 💌. Relax and wait for your delivery
+            comming in minutes!
+          </h3>
+          <br />
+          <a class="btn btn-info" href="/home">Go back to Home page</a>
         </div>
       </div>
     </div>
@@ -132,9 +144,6 @@
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       { attribution: "OSM" }
     ).addTo(map);
-
-    // locating where rider is
-    L.control.locate().addTo(map);
 
     // Get the user's location
     navigator.geolocation.getCurrentPosition(function (position) {

@@ -46,7 +46,7 @@
       <!-- new -->
       <div class="returnCart">
         <a href="cart.html" style="text-decoration: none; font-weight: bold"
-          >keep shopping</a
+          >keep shopping or remove item</a
         >
         <h1>List Product in Cart</h1>
         <div class="list">
@@ -62,9 +62,62 @@
         </div>
       </div>
 
-      <p>
+      <div
+        class="justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+      >
+        <form
+          action=""
+          class="form-horizontal justify-content-center align-items-center rounded-lg overflow-hidden p-3 mx-auto"
+        >
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter name"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="postcode" class="col-sm-2 control-label"
+              >Postcode/ZIP</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="postcode"
+                placeholder="Enter postcode"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="totalItems" class="col-sm-2 control-label"
+              >Total Items</label
+            >
+            <div class="col-sm-10 totalQuantity"></div>
+          </div>
+          <div class="form-group">
+            <label for="totalPrice" class="col-sm-2 control-label"
+              >Total Price</label
+            >
+            <div class="col-sm-10 totalPrice"></div>
+          </div>
+        </form>
+      </div>
+
+      <div id="allButtons">
+        <h5 style="font-weight: bold;">Place an order before proceeding to payment</h5>
         <button id="placeorder" class="btn btn-primary">Place Order</button>
+        <div id="toast" class="toast">
+          <p class="align-items-center text-center justify-content-center ">Ordered Successully!</p>
+         </div>
+        <h4 style="font-weight: bold;">You can Pay now by proceed to payment or pay on delivery.</h4>
+
         <button
+          id="secondButton"
           class="btn btn-primary"
           type="button"
           data-bs-toggle="collapse"
@@ -74,174 +127,87 @@
         >
           proceed to payment
         </button>
-        <a class="btn btn-primary" href="../pages/RoutingOrderTrack.html"
-          >Route Map</a
+        <a id="thirdButton" class="btn btn-primary" href="../pages/RoutingOrderTrack.html"
+          >See Route on Map</a
         >
-      </p>
-
+      </div>
+    </br>
       <!-- payment -->
       <div class="collapse" id="pay">
-        <div class="row justify-content-center">
-          <div class="card my-4 p-3">
-            <div class="row main">
-              <div class="col-12">
-                &nbsp;&nbsp;&nbsp;&nbsp;<span>Credit card checkout</span>
-              </div>
-            </div>
-
-            <div class="row justify-content-center mrow">
-              <div class="col-12">
-                <img
-                  src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
-                  width="35px"
-                  height="35px"
-                />
-                <img
-                  src="https://img.icons8.com/color/48/000000/visa.png"
-                  width="35px"
-                  height="35px"
-                />
-                <img
-                  src="https://th.bing.com/th/id/R.3dd3faf4c0ba0272965f5ff93cf72e5f?rik=e2fByiZqU1olDA&pid=ImgRaw&r=0"
-                  width="35px"
-                  height="35px"
-                />
-                <img
-                  src="https://th.bing.com/th/id/R.a3145dc97dc89e2720f3fec641481dc7?rik=azxUUV07rEqkvQ&pid=ImgRaw&r=0"
-                  width="35px"
-                  height="35px"
-                />
-                <img
-                  src="https://img.icons8.com/color/48/000000/paypal.png"
-                  width="35px"
-                  height="35px"
-                />
-              </div>
-            </div>
-            <form class="form-card">
-              <div class="row">
-                <div class="col-12">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control p-0"
-                      id="number"
-                      required
-                    /><label class="form-control-placeholder p-0" for="number"
-                      >CardNumber</label
-                    >
+        <!-- credit-card payment and paynow services  -->
+        <div class="row">
+          <div class="col-lg-6 mx-auto">
+              <div class="card ">
+                  <div class="card-header">
+                      <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                          <!-- Credit card form tabs -->
+                          <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                              <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
+                              <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2"></i> Paypal </a> </li>
+                              <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i class="fas fa-mobile-alt mr-2"></i> Mobile Banking </a> </li>
+                          </ul>
+                      </div> <!-- End -->
+                      <!-- Credit card form content -->
+                      <div class="tab-content">
+                          <!-- credit card info-->
+                          <div id="credit-card" class="tab-pane fade show active pt-3">
+                              <form role="form" onsubmit="event.preventDefault()">
+                                  <div class="form-group"> <label for="username">
+                                          <h6>Card Owner</h6>
+                                      </label> <input type="text" name="username" placeholder="Card Owner Name" required class="form-control "> </div>
+                                  <div class="form-group"> <label for="cardNumber">
+                                          <h6>Card number</h6>
+                                      </label>
+                                      <div class="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number" class="form-control " required>
+                                          <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-sm-8">
+                                          <div class="form-group"> <label><span class="hidden-xs">
+                                                      <h6>Expiration Date</h6>
+                                                  </span></label>
+                                              <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-4">
+                                          <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                  <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                              </label> <input type="text" required class="form-control"> </div>
+                                      </div>
+                                  </div>
+                                  <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                              </form>
+                          </div>
+                      </div> <!-- End -->
+                      <!-- Paypal info -->
+                      <div id="paypal" class="tab-pane fade pt-3">
+                          <h6 class="pb-2">Select your paypal account type</h6>
+                          <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Domestic </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
+                          <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button> </p>
+                          <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
+                      </div> <!-- End -->
+                      <!-- bank transfer info -->
+                      <div id="net-banking" class="tab-pane fade pt-3">
+                          <div class="form-group "> <label for="Select Your Bank">
+                                  <h6>Select your mobile Bank service</h6>
+                              </label> <select class="form-control" id="ccmonth">
+                                  <option value="" selected disabled>--Please select your Bank--</option>
+                                  <option>Artel Money</option>
+                                  <option>TNM Mpamba</option>
+  
+                              </select> </div>
+                          <div class="form-group">
+                              <p> <button type="button" class="btn btn-primary "><i class="fas fa-mobile-alt mr-2"></i> Proceed Payment</button> </p>
+                          </div>
+                          <p class="text-muted">Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
+                      </div> <!-- End -->
+                      <!-- End -->
                   </div>
-                </div>
               </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control p-0"
-                      id="number"
-                      required
-                    /><label class="form-control-placeholder p-0" for="number"
-                      >Cardholder'sName</label
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control p-0"
-                      id="name"
-                      required
-                    /><label class="form-control-placeholder p-0" for="name"
-                      >Town/City</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control p-0"
-                      id="name"
-                      required
-                    /><label class="form-control-placeholder p-0" for="name"
-                      >Postcode/ZIP</label
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-4 col-12">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control p-0"
-                      id="sdate"
-                      required
-                    /><label class="form-control-placeholder p-0" for="sdate"
-                      >StartDate</label
-                    >
-                  </div>
-                </div>
-                <div class="col-sm-4 col-12">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control p-0"
-                      id="expdate"
-                      required
-                    /><label class="form-control-placeholder p-0" for="expdate"
-                      >ExpirationDate</label
-                    >
-                  </div>
-                </div>
-                <div class="col-sm-4 col-12">
-                  <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control p-0"
-                      id="passw"
-                      required
-                    /><label class="form-control-placeholder p-0" for="passw"
-                      >CVV</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="row lrow mt-4 mb-3">
-                <div class="col-sm-8 col-12"><h3>Total items:</h3></div>
-                <div class="col-sm-4 col-12 totalQuantity"><h5>70</h5></div>
-              </div>
-              <div class="row lrow mt-4 mb-3">
-                <div class="col-sm-8 col-12"><h3>Total price</h3></div>
-                <div class="col-sm-4 col-12 totalPrice"><h5>K900</h5></div>
-              </div>
-              <div class="row mb-2">
-                <div class="col-sm-12">
-                  <button type="button" class="btn btn-primary btn-block">
-                    Pay Now
-                  </button>
-                </div>
-              </div>
-              <div class="row mb-2">
-                <div class="col-sm-12">
-                  <a
-                    href="../pages/orderTracking.html"
-                    class="btn btn-primary btn-block"
-                    >Pay on Delivery</a
-                  >
-                </div>
-              </div>
-            </form>
           </div>
-        </div>
+      </div>
+        <!-- credit-card payment and paynow services  -->
       </div>
       <!-- payiment ends -->
     </div>

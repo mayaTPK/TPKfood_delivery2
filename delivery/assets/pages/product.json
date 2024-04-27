@@ -2,56 +2,56 @@
     {
         "id": 1,
         "name":" Nsima with Chicken",
-        "price": 1000,
-        "image": "../img/fullsize/5.jpg"
+        "price": 1100,
+        "image": "../img/fullsize/NsC.jpeg"
     },
     {
         "id": 2,
         "name":" Rice and Chicken",
         "price": 1500,
-        "image": "../img/fullsize/6.jpg"
+        "image": "../img/fullsize/RC.jpeg"
     },
     {
         "id": 3,
-        "name":" spaghetti and Beef",
-        "price": 1090,
-        "image": "../img/fullsize/7.jpg"
+        "name":" Chicken spaghetti",
+        "price": 1100,
+        "image": "../img/fullsize/ChiSp.jpeg"
     },
     {
         "id": 4,
         "name":" Irish with Chicken",
-        "price": 1200,
-        "image": "../img/fullsize/8.jpg"
+        "price": 1300,
+        "image": "../img/fullsize/chicken-Irish.jpg"
     },
     {
         "id": 5,
         "name":" Irish potatoes with beef",
         "price": 1300,
-        "image": "../img/fullsize/9.jpg"
+        "image": "../img/fullsize/IrBeef.jpeg"
     },
     {
         "id": 6,
         "name":" Nsima with beans",
         "price": 1200,
-        "image": "../img/fullsize/10.jpg"
+        "image": "../img/fullsize/NsBeans.jpeg"
     },
     {
         "id": 7,
         "name":" Nsima with Chambo",
-        "price": 1100,
-        "image": "../img/fullsize/11.jpg"
+        "price": 1500,
+        "image": "https://travelfoodatlas.com/wp-content/uploads/2020/02/Nsima-malawi-735x490.jpg.webp"
     },
     {
         "id": 8,
-        "name":" Rice with beans",
-        "price": 1000,
-        "image": "../img/fullsize/12.jpg"
+        "name":" Rice with beans & soya",
+        "price": 1400,
+        "image": "../img/fullsize/RbeanSoya.jpeg"
     },
     {
         "id": 9,
-        "name":" Irish with beans",
+        "name":" Rice with beans",
         "price": 1300,
-        "image": "../img/fullsize/13.jpg"
+        "image": "../img/fullsize/ricebeans.jpg"
     }
 
 ]

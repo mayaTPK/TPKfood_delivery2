@@ -48,11 +48,36 @@ const foodnote = document.getElementById("placeorder");
 foodnote.addEventListener("click", ()=>{
     Notification.requestPermission().then(perm =>{
         if (perm === "granted"){
-            new Notification("your food is being prepared!",{
-                body: "Click on 'Route Map' to see distance from restaurant to you😊."
+            new Notification("Thank you for your order. food is being prepared!",{
+                body: "Click on 'See Route on Map' to see distance from restaurant to you😊."
             })
         }
     })
 })
 
-  
+
+document.getElementById('placeorder').addEventListener('click', function() {
+    var toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = "toast"; }, 3000);
+   });
+
+
+
+      // disableling buttons
+            window.addEventListener("allButtons", function () {
+              const firstButton = document.getElementById("placeoder");
+              const secondButton = document.getElementById("secondButton");
+              const thirdButton = document.getElementById("thirdButton");
+
+              firstButton.addEventListener("click", function () {
+                if (secondButton.disabled || thirdButton.disabled) {
+                  secondButton.disabled = false;
+                  thirdButton.disabled = false;
+                } else {
+                  alert("press the first button");
+                  secondButton.disabled = true;
+                  thirdButton.disabled = true;
+                }
+              });
+            });
