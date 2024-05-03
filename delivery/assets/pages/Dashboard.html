@@ -39,7 +39,7 @@
               </button>
               <button class="btn mt-3">
                 <i class="fa fa-book"></i
-                ><span><a href="#assignriders">Assign Riders</a></span>
+                ><span><a href="#assignriders">Assign delivery agent</a></span>
               </button>
               <button class="btn mt-3">
                 <i class="fa fa-inbox"></i
@@ -219,7 +219,11 @@
                   <td>K2500</td>
                   <td>Pending</td>
                   <td>
-                    <button type="button" class="btn btn-sm btn-warning">
+                    <button
+                      id="confirm"
+                      type="button"
+                      class="btn btn-sm btn-warning"
+                    >
                       Comfirm Order
                     </button>
                   </td>
@@ -230,7 +234,11 @@
                   <td>K1500</td>
                   <td>Pending</td>
                   <td>
-                    <button type="button" class="btn btn-sm btn-warning">
+                    <button
+                      id="confirm"
+                      type="button"
+                      class="btn btn-sm btn-warning"
+                    >
                       Comfirm Order
                     </button>
                   </td>
@@ -251,7 +259,7 @@
           </section>
           <!-- section for assigning a rider  -->
           <section id="assignriders">
-            <h4>Assign Riders</h4>
+            <h4>Assign Delivery agent</h4>
             <div class="container">
               <div class="row">
                 <div class="col">
@@ -267,7 +275,7 @@
                         I am from Limbe, I have a bike in good conditon, Ready
                         for any work.
                       </p>
-                      <button id="assignbutt" class="btn btn-info">
+                      <button id="assignbutton" class="btn btn-info">
                         Assign
                       </button>
                     </div>
@@ -287,7 +295,7 @@
                         I am from Limbe, I have a bike in good conditon, Ready
                         for any work.
                       </p>
-                      <button id="assignbutt1" class="btn btn-info">
+                      <button id="assignbutton" class="btn btn-info">
                         Assign
                       </button>
                     </div>
@@ -306,7 +314,7 @@
                         I am from Limbe, I have a bike in good conditon, Ready
                         for any work.
                       </p>
-                      <button id="assignbutt2" class="btn btn-info">
+                      <button id="assignbutton" class="btn btn-info">
                         Assign
                       </button>
                     </div>
@@ -385,39 +393,29 @@
       });
     </script>
     <script>
-      const foodnote = document.getElementById("assignbutt");
-      foodnote.addEventListener("click", () => {
-        Notification.requestPermission().then((perm) => {
-          if (perm === "granted") {
-            new Notification("you've assigned a rider!", {
-              body: "Wait for the comfirmation from the rider😊.",
-            });
-          }
+      const foodnote = document.querySelectorAll("#assignbutton");
+      foodnote.forEach(function (button) {
+        button.addEventListener("click", function () {
+          Notification.requestPermission().then((perm) => {
+            if (perm === "granted") {
+              new Notification("you've assigned a delivery agent!", {
+                body: "Wait for the comfirmation from the rider😊.",
+              });
+            }
+          });
         });
       });
     </script>
+
     <script>
-      const foodnote1 = document.getElementById("assignbutt1");
-      const name = document.getElementsByClassName;
-      foodnote1.addEventListener("click", () => {
-        Notification.requestPermission().then((perm) => {
-          if (perm === "granted") {
-            new Notification("you've assigned a rider!", {
-              body: "Wait for the comfirmation from the rider😊.",
-            });
-          }
-        });
-      });
-    </script>
-    <script>
-      const foodnote2 = document.getElementById("assignbutt2");
-      foodnote2.addEventListener("click", () => {
-        Notification.requestPermission().then((perm) => {
-          if (perm === "granted") {
-            new Notification("you've assigned a rider!", {
-              body: "Wait for the comfirmation from the rider😊.",
-            });
-          }
+      // Select all buttons with the class 'alertButton'
+      const alertButtons = document.querySelectorAll("#confirm");
+
+      // Loop through each button and add an event listener for the 'click' event
+      alertButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          // Display an alert when any button is clicked
+          alert("Order conrfimed successofully!");
         });
       });
     </script>

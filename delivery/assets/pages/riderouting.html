@@ -96,6 +96,37 @@
         </div>
         <br />
         <div>
+          <form
+            class="justify-content-center align-items-center rounded-lg overflow-hidden mx-auto row g-3"
+          >
+            <div class="col-auto">
+              <label for="Verification" class="visually-hidden">Number</label>
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                id="Verification"
+                value="Delivery Verification:"
+              />
+            </div>
+            <div class="col-auto">
+              <label for="inputPassword2" class="visually-hidden"
+                >Password</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="inputPassword2"
+                placeholder="number"
+              />
+            </div>
+            <div class="col-auto p-3">
+              <a id="confirm" href="riderouting.html" class="btn btn-primary">
+                Confirm
+              </a>
+            </div>
+          </form>
+          <br />
           <a class="btn btn-info" href="../pages/deliveryagent.html"
             >Done Delivery</a
           >
@@ -140,6 +171,16 @@
         </div>
       </div>
     </footer>
+    <script>
+      // Select the button by its ID
+      const myButton = document.getElementById("confirm");
+
+      // Add an event listener for the 'click' event
+      myButton.addEventListener("click", function () {
+        // Display an alert when the button is clicked
+        alert("Delivery verified!");
+      });
+    </script>
     <script src="../bootstrap/js/bootstrap.js"></script>
   </body>
 </html>

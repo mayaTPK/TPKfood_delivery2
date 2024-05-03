@@ -67,9 +67,15 @@
     <header class="d-flex justify-content-center align-items-center py-3">
       <h2 style="font-weight: bold">The route from you to the Restaurant</h2>
     </header>
-    <h5 class="d-flex justify-content-center align-items-center py-3">
-      Your location will be shared to our riders for delivery.
-    </h5>
+    <div class="d-flex justify-content-center align-items-center py-3">
+      <h4>Verication number for delivery confirmation</h4>
+      <input
+        class="btn btn-success"
+        type="text"
+        id="randomNumberInput"
+        placeholder="Random Number"
+      />
+    </div>
 
     <div class="container-fluid">
       <div class="row">
@@ -163,6 +169,19 @@
         waypoints: [L.latLng(start), L.latLng(end)],
       }).addTo(map);
     });
+  </script>
+  <!-- verification for delivery -->
+  <script>
+    // Function to generate a random 4-digit number
+    function generateRandomNumber() {
+      return Math.floor(Math.random() * 9000) + 1000; // This generates a number between 1000 and 9999
+    }
+
+    // Select the input field by its ID
+    const randomNumberInput = document.getElementById("randomNumberInput");
+
+    // Generate a random number and set it as the value of the input field
+    randomNumberInput.value = generateRandomNumber();
   </script>
   <!-- bootstrap js -->
   <script src="../bootstrap/js/bootstrap.min.js"></script>

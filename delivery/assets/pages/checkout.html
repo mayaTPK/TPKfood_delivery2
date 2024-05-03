@@ -110,7 +110,7 @@
 
       <div id="allButtons">
         <h5 style="font-weight: bold;">Place an order before proceeding to payment</h5>
-        <button id="placeorder" class="btn btn-primary">Place Order</button>
+        <button id="placeorder" class="btn btn-warning">Place Order</button>
         <div id="toast" class="toast">
           <p class="align-items-center text-center justify-content-center ">Ordered Successully!</p>
          </div>
@@ -262,6 +262,33 @@
       myLink.addEventListener("click", function (e) {
         e.preventDefault();
       });
+    </script>
+
+    <script>
+ const blinkButton = document.getElementById('placeorder');
+ let isBlinking = false;
+
+ function toggleBlink() {
+    if (isBlinking) {
+      clearInterval(blinkInterval);
+      blinkButton.style.opacity = '1';
+      isBlinking = false;
+    } else {
+      blinkInterval = setInterval(function() {
+        blinkButton.style.opacity = (blinkButton.style.opacity == '1' ? '0.5' : '1');
+      }, 500);
+      isBlinking = true;
+    }
+ }
+
+ // Start blinking when the page loads
+ toggleBlink();
+
+ // Stop blinking when the button is clicked
+ blinkButton.addEventListener('click', function() {
+    toggleBlink();
+ });
+
     </script>
     <!-- custom script -->
     <script src="../js/checkout.js"></script>
